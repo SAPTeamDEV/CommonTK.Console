@@ -24,7 +24,7 @@ Key features of this library are:
 
 For Getting started with this library and See more features you can visit the github page.</Description>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/SAPTeamDEV/CommonTK</RepositoryUrl>
+    <RepositoryUrl>https://github.com/SAPTeamDEV/CommonTK.Console</RepositoryUrl>
     <PackageTags>console;console-form;console-manager;color-type;create-console;console-launcher;</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -34,22 +34,15 @@ For Getting started with this library and See more features you can visit the gi
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="IEnumerable.Append" Version="1.1.0" Condition="'$(TargetFramework)' == 'net461'" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="SAPTeam.CommonTK" Version="1.1.8" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" Condition="'$(TargetFramework)' == 'net461'" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommonTK\CommonTK.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="README.md">
+    <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
