@@ -1,4 +1,9 @@
 # CommonTK.Console - All in One and Multi Purpose .NET Library for Professional Console actions
+
+[![Build status](https://ci.appveyor.com/api/projects/status/7e9tb62lry8owvns?svg=true)](https://ci.appveyor.com/project/SAPTeamDEV/commontk-console)
+[![Nuget](https://img.shields.io/nuget/v/SAPTeam.CommonTK.Console)](https://www.nuget.org/packages/SAPTeam.CommonTK.Console)
+[![Nuget](https://img.shields.io/nuget/dt/SAPTeam.CommonTK.Console)](https://www.nuget.org/packages/SAPTeam.CommonTK.Console)
+
 This library has many utilities for doing Advanced action Directly with Console using main Win32 P/Invoke APIs.
 and also has various amazing features for creating beautiful console User Interface.
 
