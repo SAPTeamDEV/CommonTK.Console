@@ -1,6 +1,6 @@
 ﻿namespace SAPTeam.CommonTK.Console
 {
-    public enum ConsoleField
+    internal enum ConsoleField
     {
         In,
         Out,

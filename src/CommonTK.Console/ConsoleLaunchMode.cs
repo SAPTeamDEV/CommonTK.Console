@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace SAPTeam.CommonTK.Console
 {
+    /// <summary>
+    /// Represents the Console launching mechanisms.
+    /// </summary>
     public enum ConsoleLaunchMode
     {
         /// <summary>

@@ -8,15 +8,20 @@ using SAPTeam.CommonTK.Contexts;
 namespace SAPTeam.CommonTK.Console
 {
     /// <summary>
-    /// Provides various functions that is not found in <see cref="Console"/> .NET Class.
+    /// Provides various functions for controlling and writing data to Console.
     /// </summary>
     public static partial class Utils
     {
         /// <summary>
-        /// Shows <paramref name="text"/> Message to Console or MessageBox Depending on the environment.
+        /// Writes <paramref name="text"/> Message to the Console
+        /// or shows MessageBox depending on the <see cref="Context.Interface"/>.
         /// </summary>
-        /// <param name="text">Message Text.</param>
-        /// <param name="newLine">Insert Line Terminator at the end of text. (For Console)</param>
+        /// <param name="text">
+        /// The message text.
+        /// </param>
+        /// <param name="newLine">
+        /// Determines that this method will add a new line character in the end of <paramref name="text"/>.
+        /// </param>
         public static void Echo(string text = "", bool newLine = true)
         {
             if (text == null)
@@ -59,6 +64,15 @@ namespace SAPTeam.CommonTK.Console
             }
         }
 
+        /// <summary>
+        /// Writes <paramref name="colorizedString"/> to the Console. if the <see cref="Context.Interface"/> is set to ui, shows a simple MessageBox.
+        /// </summary>
+        /// <param name="colorizedString">
+        /// The colorized string.
+        /// </param>
+        /// <param name="newLine">
+        /// Determines that this method will add a new line character in the end of <paramref name="colorizedString"/>.
+        /// </param>
         public static void Echo(Colorize colorizedString, bool newLine = true)
         {
             if (Context.Interface == InteractInterface.Console)
@@ -89,7 +103,7 @@ namespace SAPTeam.CommonTK.Console
         /// Clears Previous or Current line contents and set cursor to Beginning of that line.
         /// </summary>
         /// <param name="inLineClear">
-        /// Determines that with line is cleared. if <see langword="true"/> current line is cleared, otherwise The previous line is cleared.
+        /// Determines that which line is cleared. if <see langword="true"/> current line is cleared, otherwise The previous line is cleared.
         /// </param>
         /// <param name="length">
         /// Length of characters to be cleared, if <see langword="null"/> the entire line is cleared.

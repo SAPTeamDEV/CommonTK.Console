@@ -2,7 +2,7 @@
 
 namespace SAPTeam.CommonTK.Console
 {
-    public class ConsoleStatusProvider : IStatusProvider
+    internal class ConsoleStatusProvider : IStatusProvider
     {
         private readonly int line;
         private (int left, int top) currentPosition = (-1, -1);

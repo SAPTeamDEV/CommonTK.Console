@@ -8,14 +8,36 @@ using IEnumerable.Append;
 
 namespace SAPTeam.CommonTK.Console
 {
+    /// <summary>
+    /// Stores the formatted multi color string.
+    /// </summary>
     public struct Colorize
     {
-        public string Text;
+        /// <summary>
+        /// Gets the untouched string.
+        /// </summary>
+        public string Text { get; }
+
         private readonly ConsoleColor[] colors;
         private readonly string clearText;
 
+        /// <summary>
+        /// Gets the divided tuple pair of each piece of text and it's color.
+        /// </summary>
         public IEnumerable<(string text, ConsoleColor? color)> ColorizedString { get; }
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="Colorize"/>.
+        /// </summary>
+        /// <param name="text">
+        /// The well-formatted string.
+        /// <para>
+        /// See github page for more details about text formatting.
+        /// </para>
+        /// </param>
+        /// <param name="colors">
+        /// The console colors that will be respectively applied to the formatted parts of <paramref name="text"/>.
+        /// </param>
         public Colorize(string text, params ConsoleColor[] colors)
         {
             Text = text;
@@ -50,6 +72,7 @@ namespace SAPTeam.CommonTK.Console
             }
         }
 
+        /// <inheritdoc/>
         public override string ToString()
         {
             return this;
