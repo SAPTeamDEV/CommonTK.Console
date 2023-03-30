@@ -94,7 +94,11 @@ namespace SAPTeam.CommonTK.Console
             }
         }
 
-        public static int GetLine()
+        /// <summary>
+        /// Gets the cursor vertical coordinate when using <see cref="RedirectConsole"/>.
+        /// </summary>
+        /// <returns></returns>
+        internal static int GetLine()
         {
             return Context.Current.HasContext<RedirectConsole>() ? Context.Current.GetContext<RedirectConsole>().Line + System.Console.CursorTop : System.Console.CursorTop;
         }

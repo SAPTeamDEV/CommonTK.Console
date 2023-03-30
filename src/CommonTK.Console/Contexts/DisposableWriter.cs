@@ -6,6 +6,9 @@ using SAPTeam.CommonTK.Console;
 
 namespace SAPTeam.CommonTK.Contexts
 {
+    /// <summary>
+    /// Represents the <see cref="Context"/> that used for writing temporary data to the console.
+    /// </summary>
     public class DisposableWriter : Context
     {
         private readonly List<ConsoleCoords> coords = new List<ConsoleCoords>();
@@ -19,11 +22,13 @@ namespace SAPTeam.CommonTK.Contexts
 
         }
 
+        /// <inheritdoc/>
         protected override void CreateContext()
         {
             ColorSet.Current = new ColorSet(backColor, foreColor);
         }
 
+        /// <inheritdoc/>
         protected override void DisposeContext()
         {
             ColorSet.Current = new ColorSet();
@@ -33,6 +38,9 @@ namespace SAPTeam.CommonTK.Contexts
             coords.Clear();
         }
 
+        /// <summary>
+        /// Clears all wrote texts from console.
+        /// </summary>
         public void Clear()
         {
             foreach (var coord in coords)
@@ -54,15 +62,25 @@ namespace SAPTeam.CommonTK.Contexts
             }
         }
 
-        public void AddCoords(int x, int length)
+        /// <summary>
+        /// Registers a new line to the <see cref="DisposableWriter"/>.
+        /// </summary>
+        /// <param name="y">
+        /// The vertical coordinate of the new line.
+        /// </param>
+        /// <param name="length">
+        /// The length of texts on the line.
+        /// </param>
+        public void AddCoords(int y, int length)
         {
-            if (!lines.Contains(x))
+            if (!lines.Contains(y))
             {
-                lines.Add(x);
-                coords.Add(new ConsoleCoords() { Length = length, X = x });
+                lines.Add(y);
+                coords.Add(new ConsoleCoords() { Length = length, X = y });
             }
         }
 
+        /// <inheritdoc/>
         protected override void ArgsHandler(dynamic[] args)
         {
             lineClear = args[0];

@@ -34,7 +34,10 @@ namespace SAPTeam.CommonTK.Console
         }
 
         /// <summary>
-        /// Gets or Sets Type of current Application's console Text rendering.
+        /// Gets or Sets the mechanism that the console window processes the texts.
+        /// <para>
+        /// This value must be set by application first time.
+        /// </para>
         /// </summary>
         public static ConsoleType Type { get; set; }
 
@@ -52,10 +55,10 @@ namespace SAPTeam.CommonTK.Console
         /// Shows up existing Console Window, if Console Window not found then creates a new Console.
         /// </summary>
         /// <param name="mode">
-        /// Determines method that used for launching a new Console. if there is an existing Console, this value is ignored.
+        /// Determines the method that used for launching a new Console. if there is an existing Console, this value is ignored.
         /// </param>
         /// <param name="canClose">
-        /// Determines console window can be closed without handling or Need to be closed in expected way.
+        /// Determines that the console window can be closed without handling or Needs to be closed in an expected way.
         /// </param>
         public static void ShowConsole(ConsoleLaunchMode mode, bool canClose = false)
         {
@@ -93,7 +96,7 @@ namespace SAPTeam.CommonTK.Console
         /// Hides or Releases Application Console.
         /// </summary>
         /// <param name="release">
-        /// Determines that current Console should be closed or just hide it.
+        /// Determines that current Console should be closed or just hides it.
         /// </param>
         public static void HideConsole(bool release = true)
         {
