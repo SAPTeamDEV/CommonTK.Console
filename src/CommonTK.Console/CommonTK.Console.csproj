@@ -3,14 +3,16 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461;net5.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
     <Deterministic>True</Deterministic>
     <RootNamespace>SAPTeam.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <AssemblyName>SAPTeam.$(MSBuildProjectName)</AssemblyName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>CommonTK.Console</Title>
+    <AssemblyTitle>.NET Common Toolkit for Console</AssemblyTitle>
     <Authors>Alireza Poodineh</Authors>
     <Company>SAP Team</Company>
+    <Product>All in One and Multi Purpose .NET Library for Professional Console actions.</Product>
     <Description>All in One and Multi Purpose .NET Library for Professional Console actions.
 
 This library contains toolset of classes and methods that can be used by .NET Applications to perform Deep level Controls on Console.
@@ -31,12 +33,15 @@ For Getting started with this library and See more features you can visit the gi
     <NoWarn>NETSDK1138;CS1591</NoWarn>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>CommonTK.Console.snk</AssemblyOriginatorKeyFile>
+    <Copyright>Copyright © SAP Team 2023</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="IEnumerable.Append" Version="1.1.0" Condition="'$(TargetFramework)' == 'net461'" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="SAPTeam.CommonTK" Version="1.1.8" />
+    <PackageReference Include="SAPTeam.CommonTK" Version="1.2.0" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" Condition="'$(TargetFramework)' == 'net461'" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
