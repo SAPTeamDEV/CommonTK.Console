@@ -20,4 +20,4 @@ deploy:
     branch: master
   api_key:
     secure: 2JgiRhKTzQyXmzR9JYLL6f9aNfxEKvr0pF0NxqQ1YY59O1Z5xQqI9kmDgFEiJe4y
-  skip_symbols: true
+  skip_symbols: false

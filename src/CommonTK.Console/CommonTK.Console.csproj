@@ -69,6 +69,8 @@ For Getting started with this library and See more features you can visit the gi
   <ItemGroup>
     <PackageReference Include="IEnumerable.Append" Version="1.1.0" Condition="'$(TargetFramework)' == 'net461'" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" Condition="'$(TargetFramework)' != 'net6.0-windows'" />
+    <PackageReference Include="PInvoke.Kernel32" Version="0.7.124" />
+    <PackageReference Include="PInvoke.User32" Version="0.7.124" />
     <PackageReference Include="SAPTeam.CommonTK" Version="1.2.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" Condition="'$(TargetFramework)' == 'net461'" />

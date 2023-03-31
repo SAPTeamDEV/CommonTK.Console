@@ -5,6 +5,9 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 
+using static PInvoke.Kernel32;
+using static PInvoke.User32;
+
 namespace SAPTeam.CommonTK.Console
 {
     /// <summary>
@@ -12,25 +15,11 @@ namespace SAPTeam.CommonTK.Console
     /// </summary>
     public static class ConsoleManager
     {
-        private const string Kernel32_DllName = "kernel32.dll";
-        private const int SW_HIDE = 0;
-        private const int SW_SHOW = 5;
-        private const int MF_BYCOMMAND = 0x00000000;
-        private const int SC_CLOSE = 0xF060;
-
-        [DllImport(Kernel32_DllName)] private static extern bool AllocConsole();
-        [DllImport(Kernel32_DllName)] private static extern bool FreeConsole();
-        [DllImport(Kernel32_DllName)] private static extern IntPtr GetConsoleWindow();
-        [DllImport(Kernel32_DllName)] private static extern int GetConsoleOutputCP();
-        [DllImport(Kernel32_DllName)] private static extern bool AttachConsole(int dwProcessId);
-
-        [DllImport("user32.dll")] private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
         [DllImport("user32.dll")] private static extern int DeleteMenu(IntPtr hMenu, int nPosition, int wFlags);
-        [DllImport("user32.dll")] private static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
 
         private static void DisableCloseButton()
         {
-            _ = DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_CLOSE, MF_BYCOMMAND);
+            DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), (int)SysCommands.SC_CLOSE, (int)MenuItemFlags.MF_BYCOMMAND);
         }
 
         /// <summary>
@@ -87,7 +76,7 @@ namespace SAPTeam.CommonTK.Console
             }
             else
             {
-                ShowWindow(GetConsoleWindow(), SW_SHOW);
+                ShowWindow(GetConsoleWindow(), WindowShowStyle.SW_SHOW);
                 Interact.BringToFront(GetConsoleWindow());
             }
         }
@@ -106,7 +95,7 @@ namespace SAPTeam.CommonTK.Console
             }
             else
             {
-                ShowWindow(GetConsoleWindow(), SW_HIDE);
+                ShowWindow(GetConsoleWindow(), WindowShowStyle.SW_HIDE);
             }
         }
 
@@ -188,7 +177,7 @@ namespace SAPTeam.CommonTK.Console
                     pField = "s_error";
                     break;
             }
-            System.Reflection.FieldInfo fControl = type.GetField(pField, BindingFlags.Static | BindingFlags.NonPublic);
+            FieldInfo fControl = type.GetField(pField, BindingFlags.Static | BindingFlags.NonPublic);
             Debug.Assert(fControl != null);
             fControl.SetValue(obj, obj);
         }
