@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-#if NET461
+#if NET452
 using IEnumerable.Append;
 #endif
 

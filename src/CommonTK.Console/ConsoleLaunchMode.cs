@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Tracing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SAPTeam.CommonTK.Console
+﻿namespace SAPTeam.CommonTK.Console
 {
     /// <summary>
     /// Represents the Console launching mechanisms.
