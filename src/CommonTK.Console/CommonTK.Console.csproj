@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net461;net6.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
     <Deterministic>True</Deterministic>
@@ -27,10 +27,14 @@ Key features of this library are:
 For Getting started with this library and See more features you can visit the github page.</Description>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/SAPTeamDEV/CommonTK.Console</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageTags>console;console-form;console-manager;color-type;create-console;console-launcher;</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <NoWarn>NETSDK1138</NoWarn>
+    <NoWarn>CS8002</NoWarn>
     <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <SignAssembly>True</SignAssembly>
@@ -38,12 +42,37 @@ For Getting started with this library and See more features you can visit the gi
     <Copyright>Copyright © SAP Team 2023</Copyright>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-windows|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="IEnumerable.Append" Version="1.1.0" Condition="'$(TargetFramework)' == 'net461'" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" Condition="'$(TargetFramework)' != 'net6.0-windows'" />
     <PackageReference Include="SAPTeam.CommonTK" Version="1.2.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" Condition="'$(TargetFramework)' == 'net461'" />
-    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" Condition="'$(TargetFramework)' != 'net6.0-windows'" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,11 +81,4 @@ For Getting started with this library and See more features you can visit the gi
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-
-  <!--<ItemGroup>
-    <Reference Include="System.Windows.Forms" Condition="'$(TargetFramework)' == 'net5.0-windows'">
-      <HintPath>C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\5.0.17\System.Windows.Forms.dll</HintPath>
-    </Reference>
-  </ItemGroup>-->
-
 </Project>

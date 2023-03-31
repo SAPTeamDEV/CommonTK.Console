@@ -1,5 +1,5 @@
 ﻿using System;
-#if !NETSTANDARD2_0
+#if !NETSTANDARD && !NETCOREAPP
 using System.Windows.Forms;
 #endif
 
@@ -53,7 +53,7 @@ namespace SAPTeam.CommonTK.Console
                     }
                     break;
 
-#if !NETSTANDARD2_0
+#if !NETSTANDARD && !NETCOREAPP
                 case InteractInterface.UI:
                         MessageBox.Show(text, AppDomain.CurrentDomain.FriendlyName);
                         break;
