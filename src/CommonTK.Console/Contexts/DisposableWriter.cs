@@ -17,6 +17,18 @@ namespace SAPTeam.CommonTK.Contexts
         private ConsoleColor backColor;
         private ConsoleColor foreColor;
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="DisposableWriter"/>.
+        /// </summary>
+        /// <param name="lineClear">
+        /// Determines that when disposing the writer, the entire wrote lines will be cleared or just clears the wrote texts.
+        /// </param>
+        /// <param name="backgroundColor">
+        /// Determines the temporary console background color.
+        /// </param>
+        /// <param name="foregroundColor">
+        /// Determines the temporary console foreground color.
+        /// </param>
         public DisposableWriter(bool lineClear = false, ConsoleColor backgroundColor = ConsoleColor.Black, ConsoleColor foregroundColor = ConsoleColor.Gray) : base(lineClear, backgroundColor, foregroundColor)
         {
 

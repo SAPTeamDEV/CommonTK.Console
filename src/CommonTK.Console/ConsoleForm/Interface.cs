@@ -7,7 +7,7 @@ using SAPTeam.CommonTK.Contexts;
 namespace SAPTeam.CommonTK.Console.ConsoleForm
 {
     /// <summary>
-    /// Generic Class for creating Selectable elements through Console Interface.
+    /// Generic class for creating selectable elements through the Console Interface.
     /// </summary>
     public partial class Interface
     {
@@ -39,14 +39,35 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
             }
         }
 
+        /// <summary>
+        /// Gets the corresponding console element of the active form.
+        /// </summary>
+        /// <param name="index">
+        /// The vertical coordinate of the component.
+        /// </param>
+        /// <returns>
+        /// The corresponding <see cref="IControl"/> component.
+        /// </returns>
         public IControl this[int index] => activeForm.Container[index];
 
+        /// <summary>
+        /// Gets the space between cursor, top and bottom of console window.
+        /// </summary>
         public int Spacing => rootForm.First - titleLine;
 
+        /// <summary>
+        /// Gets or Sets the color schema that used by components.
+        /// </summary>
         public ColorSet ColorSchema { get; set; } = new ColorSet(ConsoleColor.White, ConsoleColor.Black);
 
         private bool hasExited;
 
+        /// <summary>
+        /// Initializes the Console User Interface.
+        /// </summary>
+        /// <param name="form">
+        /// The root console form.
+        /// </param>
         public Interface(Form form)
         {
             rootForm = activeForm = form;
@@ -62,6 +83,9 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
             titleLine = Utils.GetLine();
         }
 
+        /// <summary>
+        /// Rebuilds the current form elements.
+        /// </summary>
         public void Refresh()
         {
             if (disposableWriter != null)
@@ -81,6 +105,12 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
             if (activeForm.Container.Count > 0 && activeForm.Container[Index] is ConsoleOption opClass) opClass.Select();
         }
 
+        /// <summary>
+        /// Starts the console ui.
+        /// <para>
+        /// The caller thread blocked until the <see cref="Close()"/> is called by pressing ESC, the <see cref="Form"/> or another thread.
+        /// </para>
+        /// </summary>
         public void Start()
         {
             Refresh();
@@ -126,6 +156,9 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
             }
         }
 
+        /// <summary>
+        /// Closes the <see cref="Form"/> and then closes the Console ui and releases the thread.
+        /// </summary>
         public void Close()
         {
             RaiseClose();

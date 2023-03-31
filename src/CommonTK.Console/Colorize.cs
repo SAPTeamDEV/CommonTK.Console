@@ -78,11 +78,31 @@ namespace SAPTeam.CommonTK.Console
             return this;
         }
 
+        /// <summary>
+        /// Appends <paramref name="y"/> string to <paramref name="x"/>.
+        /// </summary>
+        /// <param name="x">
+        /// An instance of <see cref="Colorize"/>.
+        /// </param>
+        /// <param name="y">
+        /// A <see cref="string"/>.
+        /// </param>
+        /// <returns></returns>
         public static Colorize operator +(Colorize x, string y)
         {
             return new Colorize(x.Text + y, x.colors);
         }
 
+        /// <summary>
+        /// Combines two <see cref="Colorize"/> objects.
+        /// </summary>
+        /// <param name="x">
+        /// An instance of <see cref="Colorize"/>.
+        /// </param>
+        /// <param name="y">
+        /// An instance of <see cref="Colorize"/>.
+        /// </param>
+        /// <returns></returns>
         public static Colorize operator +(Colorize x, Colorize y)
         {
             ConsoleColor[] colors = new ConsoleColor[x.colors.Length + y.colors.Length];
@@ -95,6 +115,12 @@ namespace SAPTeam.CommonTK.Console
             return new Colorize(x.Text + y.Text, colors);
         }
 
+        /// <summary>
+        /// Implicitly casts an instance of <see cref="Colorize"/> to the <see cref="string"/>.
+        /// </summary>
+        /// <param name="x">
+        /// An instance of <see cref="Colorize"/>.
+        /// </param>
         public static implicit operator string(Colorize x)
         {
             string clearedText = "";

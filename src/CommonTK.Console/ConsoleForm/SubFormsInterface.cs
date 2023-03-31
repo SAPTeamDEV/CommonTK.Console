@@ -7,6 +7,12 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
     {
         private readonly List<Form> subForms = new List<Form>();
 
+        /// <summary>
+        /// Registers a new sub form and activates it.
+        /// </summary>
+        /// <param name="subForm">
+        /// The new sub form.
+        /// </param>
         public void AddSubForm(Form subForm)
         {
             subForms.Add(subForm);
@@ -16,6 +22,10 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
             SetActiveForm(subForm);
         }
 
+        /// <summary>
+        /// Changes the <see cref="activeForm"/> and sets it's receivers.
+        /// </summary>
+        /// <param name="form"></param>
         public void SetActiveForm(Form form)
         {
             form.SetReceivers();
@@ -23,6 +33,9 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
             Refresh();
         }
 
+        /// <summary>
+        /// Closes the active sub form.
+        /// </summary>
         public void CloseSubForm()
         {
             if (activeForm == subForms.Last())

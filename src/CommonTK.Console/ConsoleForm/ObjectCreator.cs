@@ -7,7 +7,10 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
 {
     public partial class Form
     {
-        public void CreateObjects()
+        /// <summary>
+        /// Creates the console ui elements according to <see cref="Items"/> and <see cref="ExecutableItems"/> dictionaries.
+        /// </summary>
+        internal void CreateObjects()
         {
             using (RedirectConsole cv = new RedirectConsole())
             {
