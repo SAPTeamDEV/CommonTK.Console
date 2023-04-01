@@ -18,11 +18,11 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
 
                 if (Items.Count > 0)
                 {
-                    foreach (var section in Items.OrderBy(key => key.Key))
+                    foreach (var section in SortSectionsByName ? Items.OrderBy(key => key.Key).ToList() : Items.ToList())
                     {
                         if (Items[section.Key].Count == 0) continue;
                         ConsoleSection secClass = AddSection(section.Key);
-                        foreach (var option in section.Value)
+                        foreach (var option in SortOptionsByName ? section.Value.OrderBy(key => key).ToList() : section.Value)
                         {
                             AddOption(option, secClass);
                         }
@@ -30,11 +30,11 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
                 }
                 else if (ExecutableItems.Count > 0)
                 {
-                    foreach (var section in ExecutableItems.OrderBy(key => key.Key))
+                    foreach (var section in SortSectionsByName ? ExecutableItems.OrderBy(key => key.Key).ToList() : ExecutableItems.ToList())
                     {
                         if (ExecutableItems[section.Key].Count == 0) continue;
                         ConsoleSection secClass = AddSection(section.Key);
-                        foreach (var data in section.Value)
+                        foreach (var data in SortOptionsByName ? section.Value.OrderBy(key => key.Value).ToList() : section.Value.ToList())
                         {
                             AddOption(data.Value, data.Key, secClass);
                         }

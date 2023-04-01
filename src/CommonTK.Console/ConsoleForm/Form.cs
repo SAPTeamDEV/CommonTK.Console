@@ -61,6 +61,16 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
         public virtual bool UseDisposableWriter => false;
 
         /// <summary>
+        /// Gets a value indicating whether the sections of this form will be sorted by their names.
+        /// </summary>
+        public virtual bool SortSectionsByName => false;
+
+        /// <summary>
+        /// Gets a value indicating whether the options of this form will be sorted by their names.
+        /// </summary>
+        public virtual bool SortOptionsByName => false;
+
+        /// <summary>
         /// Initializes a new instance of <see cref="Form"/>.
         /// </summary>
         /// <param name="rootForm">
