@@ -23,6 +23,11 @@ Console form is the biggest feature in this library. With `ConsoleForm` you can 
 
 Users can control and select items with keyboard keys. You can Notify users with a `ScreenMessage` toast notification! Console Forms also support Multi paging without issues. It can manage and handle many pages using a platform named `Interface`.
 
+You can install the [Console Form Template](https://www.nuget.org/packages/SAPTeam.CommonTK.Console.FormTemplates) package with the following command to get access to the latest api templates:
+```
+dotnet new install SAPTeam.CommonTK.Console.FormTemplates
+```
+
 #### Create a new `Form`
 In the beginning you must create a `Form` for defining form Title, Options and Behaviors.
 Here is a Example of simple Console Form:
