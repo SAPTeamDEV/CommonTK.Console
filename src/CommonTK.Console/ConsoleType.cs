@@ -6,11 +6,6 @@
     public enum ConsoleType
     {
         /// <summary>
-        /// Unsupported or Unknown console type.
-        /// </summary>
-        None,
-
-        /// <summary>
         /// Represents the state that the console launched in native forms such as Console Application
         /// or a console that launched with <see cref="ConsoleLaunchMode.AttachProcess"/> method.
         /// </summary>

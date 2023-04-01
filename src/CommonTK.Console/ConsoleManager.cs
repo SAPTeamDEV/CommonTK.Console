@@ -24,9 +24,6 @@ namespace SAPTeam.CommonTK.Console
 
         /// <summary>
         /// Gets or Sets the mechanism that the console window processes the texts.
-        /// <para>
-        /// This value must be set by application first time.
-        /// </para>
         /// </summary>
         public static ConsoleType Type { get; set; }
 
@@ -65,6 +62,7 @@ namespace SAPTeam.CommonTK.Console
                         AttachProcess(CreateConsole());
                         break;
                 }
+
                 Mode = mode;
 
                 System.Console.Title = AppDomain.CurrentDomain.FriendlyName;
@@ -106,6 +104,7 @@ namespace SAPTeam.CommonTK.Console
         {
             if (!HasConsole)
             {
+                Type = ConsoleType.External;
                 AllocConsole();
                 InvalidateOutAndError();
             }
