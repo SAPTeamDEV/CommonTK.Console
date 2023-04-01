@@ -165,6 +165,11 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
             if (disposableWriter != null)
             {
                 disposableWriter.Dispose();
+                System.Console.CursorTop = titleLine;
+            }
+            else
+            {
+                System.Console.CursorTop = activeForm.Last + 1;
             }
             hasExited = true;
             System.Console.CursorVisible = true;
