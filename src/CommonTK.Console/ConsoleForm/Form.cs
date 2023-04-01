@@ -46,6 +46,11 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
         public int Current { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether this form is the root form of this <see cref="Interface"/> instance.
+        /// </summary>
+        public bool IsRootForm { get; }
+
+        /// <summary>
         /// Gets a value indicating whether when this form is started, the console window must focuses to the stating of this form.
         /// </summary>
         public virtual bool FocusToTop => false;
@@ -78,6 +83,8 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
         /// </param>
         public Form(bool rootForm = true)
         {
+            IsRootForm = rootForm;
+
             CreateItems();
 
             if (rootForm)

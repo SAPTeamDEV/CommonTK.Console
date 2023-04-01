@@ -161,6 +161,7 @@ namespace SAPTeam.CommonTK.Console.ConsoleForm
         /// </summary>
         public void Close()
         {
+            this[Index].Update();
             RaiseClose();
             if (disposableWriter != null)
             {

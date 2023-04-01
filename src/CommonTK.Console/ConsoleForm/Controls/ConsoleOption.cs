@@ -9,14 +9,14 @@
         public override bool Selectable => true;
 
         /// <summary>
-        /// Gets the identifier this control.
+        /// Gets the identifier of this control.
         /// </summary>
         public string Identifier { get; set; }
 
         /// <summary>
         /// Gets the section to which this control belongs.
         /// </summary>
-        public ConsoleSection Section;
+        public ConsoleSection Section { get; }
 
         /// <summary>
         /// Initializes a new instance of <see cref="ConsoleOption"/>.
