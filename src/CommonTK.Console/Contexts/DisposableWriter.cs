@@ -43,7 +43,7 @@ namespace SAPTeam.CommonTK.Contexts
         /// <inheritdoc/>
         protected override void DisposeContext()
         {
-            ColorSet.Current = new ColorSet();
+            ColorSet.Current = ColorSet.Default;
 
             Clear();
 

@@ -7,7 +7,7 @@ namespace SAPTeam.CommonTK.Console
     /// </summary>
     public struct ColorSet
     {
-        private static ColorSet colors = new ColorSet();
+        private static ColorSet colors = Default;
 
         /// <summary>
         /// Gets the console background color.
@@ -35,6 +35,11 @@ namespace SAPTeam.CommonTK.Console
         public static ColorSet Current { get => colors; set { colors = value; Utils.ResetColor(); } }
 
         /// <summary>
+        /// Gets the default Color Set.
+        /// </summary>
+        public static ColorSet Default => new ColorSet(ConsoleColor.Black, ConsoleColor.Gray);
+
+        /// <summary>
         /// Initializes a new instance of <see cref="ColorSet"/>.
         /// </summary>
         /// <param name="back">
@@ -43,7 +48,7 @@ namespace SAPTeam.CommonTK.Console
         /// <param name="fore">
         /// The foreground color of console.
         /// </param>
-        public ColorSet(ConsoleColor back = ConsoleColor.Black, ConsoleColor fore = ConsoleColor.Gray)
+        public ColorSet(ConsoleColor back, ConsoleColor fore)
         {
             Back = back;
             Fore = fore;
