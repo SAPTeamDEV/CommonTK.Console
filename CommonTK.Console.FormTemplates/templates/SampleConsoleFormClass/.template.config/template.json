@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Alireza Poodineh",
+  "classifications": ["Common", "ConsoleForm"],
+  "name": "Console Form class file",
+  "description": "A template class for creating a console form using SAPTeam.CommonTK.Console",
+  "precedence": "0",
+  "identity": "CommonTK.Console.FormTemplates.Form.1.0",
+  "shortName": "console-form-class",
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  }
+}

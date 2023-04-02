@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>SAPTeam.CommonTK.Console.FormTemplates</PackageId>
+    <PackageVersion>1.0</PackageVersion>
+    <Title>Console Form Templates</Title>
+    <Authors>Alireza Poodineh</Authors>
+    <Description>Provides templates for creating a user interface in Console using SAPTeam.CommonTK.Console.</Description>
+    <PackageTags>console;template;console-form;console-ui;console-form-template</PackageTags>
+    <PackageProjectUrl>https://github.com/SAPTeamDEV/CommonTK.Console</PackageProjectUrl>
+
+    <PackageType>Template</PackageType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>templates</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LocalizeTemplates>false</LocalizeTemplates>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TemplateEngine.Tasks" Version="*" PrivateAssets="all" IsImplicitlyDefined="true"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+</Project>

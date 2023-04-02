@@ -7,7 +7,7 @@ branches:
   - master
 
 build_script:
-  - cmd: cd %APPVEYOR_BUILD_FOLDER%
+  - cmd: cd %APPVEYOR_BUILD_FOLDER%\CommonTK.Console
   - cmd: dotnet build -c Release
   - cmd: dotnet pack -c Release
 
