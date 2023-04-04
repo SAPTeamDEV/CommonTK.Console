@@ -35,39 +35,13 @@ namespace SampleConsoleForm
             // If you don't want to categorize your options, create a blank section. Like:
             // Items[""] = new List<string>();
             Items["section 1"] = new List<string>();
-            Items["section 2"] = new List<string>();
-            Items["section 3"] = new List<string>();
-            Items["section 4"] = new List<string>();
 
             // After creating at least one section you can create your form options.
             // You can create options in various ways that you want.
             Items["section 1"].AddRange(new string[]
             {
-                "Option 1",
-                "Option 2",
-                "Option 3",
-                "Option 4",
-                "Option 5",
-                "Option 6",
-                "Option 7",
-                "Option 8",
-                "Option 9"
+                "Option 1"
             });
-
-            for (int i = 1; i <= 9; i++)
-            {
-                Items["section 2"].Add("Option " + i);
-            }
-
-            foreach (var item in Items["section 1"])
-            {
-                Items["section 3"].Add(item);
-            }
-
-            // Empty sections automatically removed from console ui.
-
-            // If you set the SortSectionsByName to true, this section will be top of the other sections.
-            Items["A Section"] = new List<string>() { "An Option" };
         }
 
         // Define your form header here.
@@ -76,7 +50,7 @@ namespace SampleConsoleForm
             // NOTE: You must use the Utils.Echo for writing texts to console.
             // This method handles bunch of contexts that used in the console ui creation.
             // If you don't use this method you may face with unexpected behaviors.
-            Utils.Echo($"Sample Console{(IsRootForm ? " " : " Sub ")}Form{(IsRootForm ? "" : " hashcode is " + GetHashCode())}");
+            Utils.Echo($"Sample Console Form");
 
             // Write a free line for better look.
             Utils.Echo();
@@ -110,25 +84,6 @@ namespace SampleConsoleForm
         {
             switch (keyInfo.Key)
             {
-                // Define a custom behavior.
-                case ConsoleKey.Backspace:
-                    // Check whether this form is root form
-                    if (IsRootForm)
-                    {
-                        // The backspace key now closes the console ui immediately without checking the IsCloable value.
-                        Platform.Close();
-                    }
-                    else
-                    {
-                        // The backspace key now closes this sub form immediately without checking the IsCloable value.
-                        Platform.CloseSubForm();
-                    }
-                    break;
-                // TAB key creates a new sub form.
-                case ConsoleKey.Tab:
-                    Platform.AddSubForm(new ConsoleForm1(false));
-                    break;
-                // This key refreshes the entire console ui visual elements.
                 case ConsoleKey.F5:
                 case ConsoleKey.UpArrow:
                 case ConsoleKey.DownArrow:
@@ -146,23 +101,7 @@ namespace SampleConsoleForm
         // You can set the behavior of each option here.
         protected override void OnEnter(ConsoleOption option)
         {
-            switch (option.Text) // This is the name that you Defined in the CreateItems.
-            {
-                case "Option 1": // Accepts all Option 1 items.
-                    Platform.ScreenMessage("Try another options in the Section 2");
-                    break;
-                case "Option 5":
-                    if (option.Section.Text == "section 2")
-                    {
-                        Platform.ScreenMessage("Congratulation this option is correct, nothing will happen :)");
-                        break;
-                    }
-                    Platform.ScreenMessage(option.Text + " is incorrect, try finding the correct option in the other sections");
-                    break;
-                default:
-                    Platform.ScreenMessage(option.Text + " is incorrect");
-                    break;
-            }
+            // Write the logic of your form here...
         }
 
         // Define your form closing scripts.
