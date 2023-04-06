@@ -23,6 +23,11 @@ namespace SAPTeam.CommonTK.Console
             {
                 System.Console.WindowTop = Math.Max(0, System.Console.WindowTop - 1);
             }
+            else if (top + spacing > System.Console.WindowHeight + System.Console.WindowTop + 1 && RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                System.Console.WindowTop++;
+            }
+
             System.Console.SetCursorPosition(left, top);
         }
 
