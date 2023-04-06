@@ -1,15 +1,27 @@
-﻿using SAPTeam.CommonTK.Console;
+﻿using System;
+
+using SAPTeam.CommonTK.Console;
 
 namespace SAPTeam.CommonTK.Contexts
 {
     /// <summary>
     /// Represents the <see cref="Context"/> that used for creating and releasing the console windows for the Desktop Applications.
+    /// <para>
+    /// Context locked Action Groups: global.interface, process.console
+    /// </para>
     /// </summary>
     public class ConsoleWindow : Context
     {
         ConsoleLaunchMode mode;
         bool canClose;
         bool release;
+
+        /// <inheritdoc/>
+        public override string[] Groups => new string[]
+        {
+            ActionGroup(ActionScope.Global, "interface"),
+            ActionGroup(ActionScope.Process, "console")
+        };
 
         /// <summary>
         /// Initializes a new instance of <see cref="ConsoleWindow"/>.
@@ -23,17 +35,18 @@ namespace SAPTeam.CommonTK.Contexts
         /// <param name="release">
         /// Determines that current Console should be closed or just hides it.
         /// </param>
-        public ConsoleWindow(ConsoleLaunchMode mode = ConsoleLaunchMode.Allocation, bool canClose = false, bool release = true) : base(mode, canClose, release)
+        public ConsoleWindow(ConsoleLaunchMode mode = ConsoleLaunchMode.Allocation, bool canClose = false, bool release = true)
         {
+            this.mode = mode;
+            this.canClose = canClose;
+            this.release = release;
 
-        }
+            if (ConsoleManager.HasConsole && Interface == InteractInterface.UI)
+            {
+                throw new InvalidOperationException("This process already has a console.");
+            }
 
-        /// <inheritdoc/>
-        protected override void ArgsHandler(dynamic[] args)
-        {
-            mode = args[0];
-            canClose = args[1];
-            release = args[2];
+            Initialize(true);
         }
 
         /// <inheritdoc/>

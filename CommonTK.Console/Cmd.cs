@@ -33,17 +33,17 @@ namespace SAPTeam.CommonTK.Console
             {
                 case InteractInterface.Console:
                     {
-                        if (text.Length > 0 && Context.Current.HasContext<DisposableWriter>() && !Context.Current.HasContext<RedirectConsole>())
+                        if (text.Length > 0 && Context.Exists<DisposableWriter>() && !Context.Exists<RedirectConsole>())
                         {
-                            Context.Current.GetContext<DisposableWriter>().AddCoords(System.Console.CursorTop, System.Console.CursorLeft + text.Length);
+                            Context.GetContext<DisposableWriter>().AddCoords(System.Console.CursorTop, System.Console.CursorLeft + text.Length);
                         }
 
                         if (newLine)
                         {
                             System.Console.WriteLine(text);
-                            if (Context.Current.HasContext<RedirectConsole>())
+                            if (Context.Exists<RedirectConsole>())
                             {
-                                Context.Current.GetContext<RedirectConsole>().Line++;
+                                Context.GetContext<RedirectConsole>().Line++;
                             }
                         }
                         else
@@ -100,7 +100,7 @@ namespace SAPTeam.CommonTK.Console
         /// <returns></returns>
         internal static int GetLine()
         {
-            return Context.Current.HasContext<RedirectConsole>() ? Context.Current.GetContext<RedirectConsole>().Line + System.Console.CursorTop : System.Console.CursorTop;
+            return Context.Exists<RedirectConsole>() ? Context.GetContext<RedirectConsole>().Line + System.Console.CursorTop : System.Console.CursorTop;
         }
 
         /// <summary>

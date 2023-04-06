@@ -8,6 +8,9 @@ namespace SAPTeam.CommonTK.Contexts
 {
     /// <summary>
     /// Represents the <see cref="Context"/> that used for writing temporary data to the console.
+    /// <para>
+    /// Context locked Action Group: global.color
+    /// </para>
     /// </summary>
     public class DisposableWriter : Context
     {
@@ -16,6 +19,12 @@ namespace SAPTeam.CommonTK.Contexts
         private bool lineClear;
         private ConsoleColor backColor;
         private ConsoleColor foreColor;
+
+        /// <inheritdoc/>
+        public override string[] Groups => new string[]
+        {
+            ActionGroup(ActionScope.Global, "color"),
+        };
 
         /// <summary>
         /// Initializes a new instance of <see cref="DisposableWriter"/>.
@@ -29,9 +38,13 @@ namespace SAPTeam.CommonTK.Contexts
         /// <param name="foregroundColor">
         /// Determines the temporary console foreground color.
         /// </param>
-        public DisposableWriter(bool lineClear = false, ConsoleColor backgroundColor = ConsoleColor.Black, ConsoleColor foregroundColor = ConsoleColor.Gray) : base(lineClear, backgroundColor, foregroundColor)
+        public DisposableWriter(bool lineClear = false, ConsoleColor backgroundColor = ConsoleColor.Black, ConsoleColor foregroundColor = ConsoleColor.Gray)
         {
+            this.lineClear = lineClear;
+            this.backColor = backgroundColor;
+            this.foreColor = foregroundColor;
 
+            Initialize(true);
         }
 
         /// <inheritdoc/>
@@ -48,6 +61,24 @@ namespace SAPTeam.CommonTK.Contexts
             Clear();
 
             coords.Clear();
+        }
+
+        /// <summary>
+        /// Registers a new line to the <see cref="DisposableWriter"/>.
+        /// </summary>
+        /// <param name="y">
+        /// The vertical coordinate of the new line.
+        /// </param>
+        /// <param name="length">
+        /// The length of texts on the line.
+        /// </param>
+        public void AddCoords(int y, int length)
+        {
+            if (!lines.Contains(y))
+            {
+                lines.Add(y);
+                coords.Add(new ConsoleCoords() { Length = length, X = y });
+            }
         }
 
         /// <summary>
@@ -72,32 +103,6 @@ namespace SAPTeam.CommonTK.Contexts
             {
                 System.Console.CursorTop = lines.Min();
             }
-        }
-
-        /// <summary>
-        /// Registers a new line to the <see cref="DisposableWriter"/>.
-        /// </summary>
-        /// <param name="y">
-        /// The vertical coordinate of the new line.
-        /// </param>
-        /// <param name="length">
-        /// The length of texts on the line.
-        /// </param>
-        public void AddCoords(int y, int length)
-        {
-            if (!lines.Contains(y))
-            {
-                lines.Add(y);
-                coords.Add(new ConsoleCoords() { Length = length, X = y });
-            }
-        }
-
-        /// <inheritdoc/>
-        protected override void ArgsHandler(dynamic[] args)
-        {
-            lineClear = args[0];
-            backColor = args[1];
-            foreColor = args[2];
         }
     }
 }

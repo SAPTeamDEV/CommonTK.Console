@@ -7,6 +7,7 @@ using System.Threading;
 
 using static PInvoke.Kernel32;
 using static PInvoke.User32;
+using static SAPTeam.CommonTK.Context;
 
 namespace SAPTeam.CommonTK.Console
 {
@@ -16,6 +17,7 @@ namespace SAPTeam.CommonTK.Console
     public static class ConsoleManager
     {
         [DllImport("user32.dll")] private static extern int DeleteMenu(IntPtr hMenu, int nPosition, int wFlags);
+        [DllImport("user32.dll")] private static extern bool SetFocus(IntPtr hWnd);
 
         private static void DisableCloseButton()
         {
@@ -39,6 +41,9 @@ namespace SAPTeam.CommonTK.Console
 
         /// <summary>
         /// Shows up existing Console Window, if Console Window not found then creates a new Console.
+        /// <para>
+        /// Method Action Group: process.console
+        /// </para>
         /// </summary>
         /// <param name="mode">
         /// Determines the method that used for launching a new Console. if there is an existing Console, this value is ignored.
@@ -48,6 +53,7 @@ namespace SAPTeam.CommonTK.Console
         /// </param>
         public static void ShowConsole(ConsoleLaunchMode mode, bool canClose = false)
         {
+            QueryGroup(ActionGroup(ActionScope.Process, "console"));
             if (!HasConsole)
             {
                 switch (mode)
@@ -74,19 +80,25 @@ namespace SAPTeam.CommonTK.Console
             }
             else
             {
-                ShowWindow(GetConsoleWindow(), WindowShowStyle.SW_SHOW);
-                Interact.BringToFront(GetConsoleWindow());
+                var handle = GetConsoleWindow();
+                ShowWindow(handle, WindowShowStyle.SW_SHOW);
+                SetForegroundWindow(handle);
+                SetFocus(handle);
             }
         }
 
         /// <summary>
         /// Hides or Releases Application Console.
+        /// <para>
+        /// Method Action Group: process.console
+        /// </para>
         /// </summary>
         /// <param name="release">
         /// Determines that current Console should be closed or just hides it.
         /// </param>
         public static void HideConsole(bool release = true)
         {
+            QueryGroup(ActionGroup(ActionScope.Process, "console"));
             if (release)
             {
                 ReleaseConsole();

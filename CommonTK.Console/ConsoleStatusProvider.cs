@@ -38,5 +38,10 @@ namespace SAPTeam.CommonTK.Console
             Utils.Echo(message, false);
             UnFocus();
         }
+
+        public void Dispose()
+        {
+            Clear();
+        }
     }
 }

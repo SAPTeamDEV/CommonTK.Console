@@ -17,9 +17,14 @@ namespace SAPTeam.CommonTK.Contexts
         internal int Line { get; set; }
 
         /// <inheritdoc/>
-        protected override void ArgsHandler(dynamic[] args)
+        public override string[] Groups => Array.Empty<string>();
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="RedirectConsole"/>.
+        /// </summary>
+        public RedirectConsole()
         {
-            throw new NotImplementedException();
+            Initialize(true);
         }
 
         /// <inheritdoc/>

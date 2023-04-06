@@ -1,5 +1,7 @@
 ﻿using System;
 
+using static SAPTeam.CommonTK.Context;
+
 namespace SAPTeam.CommonTK.Console
 {
     /// <summary>
@@ -31,8 +33,20 @@ namespace SAPTeam.CommonTK.Console
 
         /// <summary>
         /// Gets or Sets the Global Color Set.
+        /// <para>
+        /// Property setter Action Group: global.color
+        /// </para>
         /// </summary>
-        public static ColorSet Current { get => colors; set { colors = value; Utils.ResetColor(); } }
+        public static ColorSet Current
+        {
+            get => colors;
+            set
+            {
+                QueryGroup(ActionGroup(ActionScope.Global, "color"));
+                colors = value;
+                Utils.ResetColor();
+            }
+        }
 
         /// <summary>
         /// Gets the default Color Set.
