@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>SAPTeam.CommonTK.Console.FormTemplates</PackageId>
-    <PackageVersion>1.1</PackageVersion>
+    <PackageVersion>1.1.1</PackageVersion>
     <Title>Console Form Templates</Title>
     <Authors>Alireza Poodineh</Authors>
     <Description>Provides templates for creating a user interface in Console using SAPTeam.CommonTK.Console.</Description>
