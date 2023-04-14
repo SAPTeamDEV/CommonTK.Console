@@ -5,7 +5,7 @@
   "name": "Console Form App",
   "description": "A project for creating a console form application using SAPTeam.CommonTK.Console",
   "precedence": "0",
-  "identity": "CommonTK.Console.FormTemplates.Project.1.0",
+  "identity": "SAPTeam.CommonTK.Console.FormTemplates.Project.1.0",
   "shortName": "console-form",
   "tags": {
     "language": "C#",
