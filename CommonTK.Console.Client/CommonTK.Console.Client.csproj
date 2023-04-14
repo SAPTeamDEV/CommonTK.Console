@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+    <TargetFramework>net461</TargetFramework>
     <AssemblyName>SAPTeam.CommonTK.Console.Client</AssemblyName>
     <RootNamespace>$(AssemblyName)</RootNamespace>
     <PackageId>$(AssemblyName)</PackageId>
     
     <Title>CommonTK.Console.Client</Title>
     <AssemblyTitle>Console Client</AssemblyTitle>
-    <PackageVersion>0.1-alpha</PackageVersion>
+    <Version>0.1-alpha</Version>
     <Product>A Simple Console Client.</Product>
     <Authors>Alireza Poodineh</Authors>
     <Company>SAP Team</Company>
@@ -21,10 +21,11 @@
     <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
     <Deterministic>True</Deterministic>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <OutputType>Exe</OutputType>
    </PropertyGroup>
    
    <ItemGroup>
-    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All"/>
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All" />
     </ItemGroup>
   
 </Project>

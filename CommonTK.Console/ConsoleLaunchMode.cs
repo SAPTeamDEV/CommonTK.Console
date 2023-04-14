@@ -18,6 +18,11 @@
         /// <summary>
         /// Creates a Dedicated cmd Process, then kill it and uses it's Process Window.
         /// </summary>
-        AttachProcess
+        AttachProcess,
+
+        /// <summary>
+        /// Creates a pipe console client using CommonTK.Console.Client.
+        /// </summary>
+        CreateClient
     }
 }

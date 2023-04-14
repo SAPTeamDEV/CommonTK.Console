@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Pipes;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 
 using static PInvoke.Kernel32;
@@ -33,6 +35,11 @@ namespace SAPTeam.CommonTK.Console
         /// Gets console Launching method.
         /// </summary>
         public static ConsoleLaunchMode Mode { get; private set; }
+
+        /// <summary>
+        /// Gets the named pipe that used for communicating with the console client.
+        /// </summary>
+        public static NamedPipeServerStream Pipe { get; private set; }
 
         /// <summary>
         /// Checks if The Application has Console.
@@ -66,6 +73,9 @@ namespace SAPTeam.CommonTK.Console
                         break;
                     case ConsoleLaunchMode.AttachProcess:
                         AttachProcess(CreateConsole());
+                        break;
+                    case ConsoleLaunchMode.CreateClient:
+                        CreateClient();
                         break;
                 }
 
@@ -146,14 +156,17 @@ namespace SAPTeam.CommonTK.Console
         }
 
         /// <summary>
-        /// Creates a new Console process.
+        /// Creates a new console process.
         /// </summary>
-        /// <returns><see cref="Process"/> object of new Console.</returns>
-        private static Process CreateConsole()
+        /// <param name="name">
+        /// The name of the process.
+        /// </param>
+        /// <returns>A <see cref="Process"/> object of the new console.</returns>
+        private static Process CreateConsole(string name = "cmd.exe")
         {
             ProcessStartInfo startInfo = new ProcessStartInfo()
             {
-                FileName = "cmd.exe"
+                FileName = name
             };
             Process con = Process.Start(startInfo);
             return con;
@@ -170,6 +183,18 @@ namespace SAPTeam.CommonTK.Console
             AttachConsole(process.Id);
             process.Kill();
             System.Console.Clear();
+        }
+
+        private static void CreateClient()
+        {
+            Pipe = new NamedPipeServerStream("console.pipe", PipeDirection.InOut, 1);
+
+            var cProc = CreateConsole("SAPTeam.CommonTK.Console.Client.exe");
+
+            Pipe.WaitForConnection();
+            var data = Encoding.ASCII.GetBytes("testing");
+            Pipe.Write(data, 0, data.Length);
+            Pipe.Flush();
         }
 
         private static void ForceSet(ConsoleField field, object obj)

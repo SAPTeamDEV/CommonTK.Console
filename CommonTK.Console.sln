@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console", "CommonTK.Console\CommonTK.Console.csproj", "{B66C6852-8F02-48CD-AA76-4682255D4D11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleConsoleForm", "CommonTK.Console.FormTemplates\templates\SampleConsoleFormProject\SampleConsoleForm.csproj", "{6DE29EBD-9FB3-4917-B67D-398434A3D5E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.Client", "CommonTK.Console.Client\CommonTK.Console.Client.csproj", "{17C9958A-628A-4A48-9774-BF682EF7EBE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{B66C6852-8F02-48CD-AA76-4682255D4D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B66C6852-8F02-48CD-AA76-4682255D4D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B66C6852-8F02-48CD-AA76-4682255D4D11}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DE29EBD-9FB3-4917-B67D-398434A3D5E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DE29EBD-9FB3-4917-B67D-398434A3D5E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DE29EBD-9FB3-4917-B67D-398434A3D5E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DE29EBD-9FB3-4917-B67D-398434A3D5E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
