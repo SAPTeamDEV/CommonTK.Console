@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console", "CommonT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.Client", "CommonTK.Console.Client\CommonTK.Console.Client.csproj", "{17C9958A-628A-4A48-9774-BF682EF7EBE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTK.Console.UITests", "tests\CommonTK.Console.UITests\CommonTK.Console.UITests.csproj", "{5893607E-B289-4307-8594-E1E606D6CD69}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CommonTK.Console.UnitTests", "tests\CommonTK.Console.UnitTests\CommonTK.Console.UnitTests.shproj", "{8EBF41C6-1CDA-4D07-B0B9-217B032B85C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,11 +31,19 @@ Global
 		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5893607E-B289-4307-8594-E1E606D6CD69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5893607E-B289-4307-8594-E1E606D6CD69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5893607E-B289-4307-8594-E1E606D6CD69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5893607E-B289-4307-8594-E1E606D6CD69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BF448C2-391B-4253-8ADE-D704EE33EBE4}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		tests\CommonTK.Console.UnitTests\CommonTK.Console.UnitTests.projitems*{5893607e-b289-4307-8594-e1e606d6cd69}*SharedItemsImports = 5
+		tests\CommonTK.Console.UnitTests\CommonTK.Console.UnitTests.projitems*{8ebf41c6-1cda-4d07-b0b9-217b032b85c4}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

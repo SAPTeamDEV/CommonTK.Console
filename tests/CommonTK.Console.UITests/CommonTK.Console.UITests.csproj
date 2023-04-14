@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>SAPTeam.CommonTK.Console.UITests</AssemblyName>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="..\CommonTK.Console.UnitTests\CommonTK.Console.UnitTests.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonTK.Console\CommonTK.Console.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -192,7 +192,10 @@ namespace SAPTeam.CommonTK.Console
             var cProc = CreateConsole("SAPTeam.CommonTK.Console.Client.exe");
 
             Pipe.WaitForConnection();
-            var data = Encoding.ASCII.GetBytes("testing");
+            var data = Encoding.Unicode.GetBytes("testing");
+            var len = data.Length;
+            Pipe.WriteByte((byte)(len / 256));
+            Pipe.WriteByte((byte)(len & 255));
             Pipe.Write(data, 0, data.Length);
             Pipe.Flush();
         }

@@ -21,8 +21,9 @@ namespace SAPTeam.CommonTK.Console.Client
             var data = new byte[len];
             receiver.Read(data, 0, len);
             var text = Encoding.Unicode.GetString(data);
+            text.Trim();
             System.Console.Write(text);
-
+            System.Console.ReadKey();
         }
     }
 }
