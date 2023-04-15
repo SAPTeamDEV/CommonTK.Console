@@ -207,6 +207,7 @@ namespace SAPTeam.CommonTK.Console
             Pipe.WriteByte((byte)(len & 255));
             Pipe.Write(data, 0, data.Length);
             Pipe.Flush();
+            Pipe.Close();
         }
 
         private static void ForceSet(ConsoleField field, object obj)

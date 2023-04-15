@@ -38,6 +38,7 @@
             this.Name = "MainForm";
             this.Text = "UI Interactive Test Runner";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.ResumeLayout(false);
 
         }

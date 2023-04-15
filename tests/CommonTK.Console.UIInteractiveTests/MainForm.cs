@@ -15,6 +15,11 @@ namespace CommonTK.Console.UIInteractiveTests
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
+            
+        }
+
+        private void MainForm_Shown(object sender, System.EventArgs e)
+        {
             using (var con = new ConsoleWindow(ConsoleLaunchMode.CreateClient))
             {
                 var tests = new EntryPoint();

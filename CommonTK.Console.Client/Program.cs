@@ -14,7 +14,7 @@ namespace SAPTeam.CommonTK.Console.Client
         {
             if (args.Length == 2 && args[0] == "-p")
             {
-                var receiver = new NamedPipeClientStream("console.pipe");
+                var receiver = new NamedPipeClientStream(args[1]);
 
                 receiver.Connect();
                 int len;
