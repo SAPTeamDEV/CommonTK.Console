@@ -21,7 +21,7 @@
         AttachProcess,
 
         /// <summary>
-        /// Creates a pipe console client using CommonTK.Console.Client.
+        /// Creates a pipe console client using ConClient.
         /// </summary>
         CreateClient
     }

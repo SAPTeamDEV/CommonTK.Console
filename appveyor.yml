@@ -7,12 +7,11 @@ branches:
   - master
 
 build_script:
-  - cmd: cd %APPVEYOR_BUILD_FOLDER%\CommonTK.Console
-  - cmd: dotnet build -c Release
-  - cmd: dotnet pack -c Release
+  - cmd: dotnet pack CommonTK.Console\CommonTK.Console.csproj -c Release
+  - cmd: dotnet pack CommonTK.Console.Client\CommonTK.Console.Client.csproj -c Release
 
 artifacts:
-  - path: CommonTK.Console\bin\Release\SAPTeam.CommonTK.Console.*nupkg
+  - path: CommonTK.*\bin\Release\SAPTeam.CommonTK.*.*nupkg
 
 deploy:
   provider: NuGet

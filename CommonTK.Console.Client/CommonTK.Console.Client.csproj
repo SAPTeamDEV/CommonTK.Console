@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
-    <AssemblyName>SAPTeam.CommonTK.Console.Client</AssemblyName>
-    <RootNamespace>$(AssemblyName)</RootNamespace>
-    <PackageId>$(AssemblyName)</PackageId>
+    <TargetFramework>net35</TargetFramework>
+    <AssemblyName>ConClient</AssemblyName>
+    <RootNamespace>SAPTeam.CommonTK.Console.Client</RootNamespace>
+    <PackageId>SAPTeam.CommonTK.Console.Client</PackageId>
     
     <Title>CommonTK.Console.Client</Title>
     <AssemblyTitle>Console Client</AssemblyTitle>
-    <Version>0.1-alpha</Version>
+    <Version></Version>
     <Product>A Simple Console Client.</Product>
     <Authors>Alireza Poodineh</Authors>
     <Company>SAP Team</Company>
@@ -20,12 +20,18 @@
     
     <GenerateAssemblyInfo>True</GenerateAssemblyInfo>
     <Deterministic>True</Deterministic>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <OutputType>Exe</OutputType>
+    <StartupObject>SAPTeam.CommonTK.Console.Client.Program</StartupObject>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>CommonTK.Console.Client.snk</AssemblyOriginatorKeyFile>
+    <PackageTags>console;pipe;pipe-client;console-pipe-client</PackageTags>
    </PropertyGroup>
    
    <ItemGroup>
     <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All" />
+     <PackageReference Include="Nerdbank.GitVersioning" Version="3.5.119" PrivateAssets="All" />
     </ItemGroup>
   
 </Project>

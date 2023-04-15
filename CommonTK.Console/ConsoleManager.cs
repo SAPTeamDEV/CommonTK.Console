@@ -189,7 +189,7 @@ namespace SAPTeam.CommonTK.Console
         {
             Pipe = new NamedPipeServerStream("console.pipe", PipeDirection.InOut, 1);
 
-            var cProc = CreateConsole("SAPTeam.CommonTK.Console.Client.exe");
+            var cProc = CreateConsole("ConClient.exe");
 
             Pipe.WaitForConnection();
             var data = Encoding.Unicode.GetBytes("testing");
