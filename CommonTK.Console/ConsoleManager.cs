@@ -82,6 +82,9 @@ namespace SAPTeam.CommonTK.Console
                     case ConsoleLaunchMode.CreateClient:
                         CreateClient();
                         break;
+                    case ConsoleLaunchMode.AttachClient:
+                        AttachClient(CreateConsole("ConClient.exe", "-s"));
+                        break;
                 }
 
                 Mode = mode;
@@ -100,6 +103,14 @@ namespace SAPTeam.CommonTK.Console
                 SetForegroundWindow(handle);
                 SetFocus(handle);
             }
+        }
+
+        private static void AttachClient(Process process)
+        {
+            Thread.Sleep(1000);
+            Type = ConsoleType.Native;
+            AttachConsole(process.Id);
+            System.Console.Clear();
         }
 
         /// <summary>

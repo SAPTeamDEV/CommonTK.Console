@@ -23,6 +23,11 @@
         /// <summary>
         /// Creates a pipe console client using ConClient.
         /// </summary>
-        CreateClient
+        CreateClient,
+
+        /// <summary>
+        /// Creates a new blank console application and attaches to it.
+        /// </summary>
+        AttachClient
     }
 }

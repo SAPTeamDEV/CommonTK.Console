@@ -5,6 +5,7 @@ namespace SAPTeam.CommonTK.Console.SharedInteractiveTests
         public void BeginTests()
         {
             System.Console.WriteLine("test");
+            System.Console.ReadKey();
         }
     }
 }

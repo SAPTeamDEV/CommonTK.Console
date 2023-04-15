@@ -20,7 +20,7 @@ namespace CommonTK.Console.UIInteractiveTests
 
         private void MainForm_Shown(object sender, System.EventArgs e)
         {
-            using (var con = new ConsoleWindow(ConsoleLaunchMode.CreateClient))
+            using (var con = new ConsoleWindow(ConsoleLaunchMode.AttachClient, true))
             {
                 var tests = new EntryPoint();
                 tests.BeginTests();
