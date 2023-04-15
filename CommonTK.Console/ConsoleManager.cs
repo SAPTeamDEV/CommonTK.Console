@@ -21,6 +21,11 @@ namespace SAPTeam.CommonTK.Console
         [DllImport("user32.dll")] private static extern int DeleteMenu(IntPtr hMenu, int nPosition, int wFlags);
         [DllImport("user32.dll")] private static extern bool SetFocus(IntPtr hWnd);
 
+        /// <summary>
+        /// Gets the name of the pipe server.
+        /// </summary>
+        public const string PipeServerName = "pipe.console";
+
         private static void DisableCloseButton()
         {
             DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), (int)SysCommands.SC_CLOSE, (int)MenuItemFlags.MF_BYCOMMAND);
@@ -162,11 +167,12 @@ namespace SAPTeam.CommonTK.Console
         /// The name of the process.
         /// </param>
         /// <returns>A <see cref="Process"/> object of the new console.</returns>
-        private static Process CreateConsole(string name = "cmd.exe")
+        private static Process CreateConsole(string name = "cmd.exe", string args = "")
         {
             ProcessStartInfo startInfo = new ProcessStartInfo()
             {
-                FileName = name
+                FileName = name,
+                Arguments = args
             };
             Process con = Process.Start(startInfo);
             return con;
@@ -187,9 +193,9 @@ namespace SAPTeam.CommonTK.Console
 
         private static void CreateClient()
         {
-            Pipe = new NamedPipeServerStream("console.pipe", PipeDirection.InOut, 1);
+            Pipe = new NamedPipeServerStream(PipeServerName, PipeDirection.InOut, 1);
 
-            var cProc = CreateConsole("ConClient.exe");
+            var cProc = CreateConsole("ConClient.exe", $"-p {PipeServerName}");
 
             Pipe.WaitForConnection();
             var data = Encoding.Unicode.GetBytes("testing");
