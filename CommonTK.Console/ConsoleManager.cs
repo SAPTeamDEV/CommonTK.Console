@@ -83,13 +83,15 @@ namespace SAPTeam.CommonTK.Console
                         CreateClient();
                         break;
                     case ConsoleLaunchMode.AttachClient:
-                        AttachClient(CreateConsole("ConClient.exe", "-s"));
+                        AttachClient();
                         break;
                 }
 
                 Mode = mode;
-
-                System.Console.Title = AppDomain.CurrentDomain.FriendlyName;
+                if (mode != ConsoleLaunchMode.AttachClient && mode != ConsoleLaunchMode.CreateClient)
+                {
+                    System.Console.Title = AppDomain.CurrentDomain.FriendlyName;
+                }
 
                 if (!canClose)
                 {
@@ -105,12 +107,22 @@ namespace SAPTeam.CommonTK.Console
             }
         }
 
-        private static void AttachClient(Process process)
+        private static void AttachClient()
         {
+            var process = Process.Start(new ProcessStartInfo
+            {
+                FileName = "ConClient.exe",
+                Arguments = "-s",
+                RedirectStandardInput = true,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false
+            });
             Thread.Sleep(1000);
             Type = ConsoleType.Native;
-            AttachConsole(process.Id);
-            System.Console.Clear();
+            System.Console.SetIn(process.StandardOutput);
+            System.Console.SetOut(process.StandardInput);
+            // System.Console.Clear();
         }
 
         /// <summary>
@@ -214,10 +226,12 @@ namespace SAPTeam.CommonTK.Console
             Pipe.WaitForConnection();
             var data = Encoding.Unicode.GetBytes("testing");
             var len = data.Length;
-            Pipe.WriteByte((byte)(len / 256));
-            Pipe.WriteByte((byte)(len & 255));
+            // Pipe.WriteByte((byte)(len / 256));
+            // Pipe.WriteByte((byte)(len & 255));
             Pipe.Write(data, 0, data.Length);
             Pipe.Flush();
+            Pipe.WaitForPipeDrain();
+            Pipe.Write(data, 0, data.Length);
             Pipe.Close();
         }
 
