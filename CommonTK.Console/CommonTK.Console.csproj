@@ -7,7 +7,7 @@
     <Deterministic>True</Deterministic>
     <RootNamespace>SAPTeam.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <AssemblyName>SAPTeam.$(MSBuildProjectName)</AssemblyName>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>CommonTK.Console</Title>
     <AssemblyTitle>.NET Common Toolkit for Console</AssemblyTitle>
     <Authors>Alireza Poodineh</Authors>
@@ -35,7 +35,7 @@ For Getting started with this library and See more features you can visit the gi
     <PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NoWarn>CS8002</NoWarn>
-    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>CommonTK.Console.snk</AssemblyOriginatorKeyFile>
