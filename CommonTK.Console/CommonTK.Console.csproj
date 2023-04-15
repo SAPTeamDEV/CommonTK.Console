@@ -34,7 +34,7 @@ For Getting started with this library and See more features you can visit the gi
     <PackageTags>console;console-form;console-manager;color-type;create-console;console-launcher;</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <NoWarn>CS8002</NoWarn>
+    <NoWarn>CS8002;NU1702</NoWarn>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <SignAssembly>True</SignAssembly>

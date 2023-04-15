@@ -166,6 +166,9 @@ namespace SAPTeam.CommonTK.Console
         /// <param name="name">
         /// The name of the process.
         /// </param>
+        /// <param name="args">
+        /// The arguments that will be passed to the process.
+        /// </param>
         /// <returns>A <see cref="Process"/> object of the new console.</returns>
         private static Process CreateConsole(string name = "cmd.exe", string args = "")
         {

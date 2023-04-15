@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net461</TargetFramework>
+    <AssemblyName>SAPTeam.CommonTK.Console.ConsoleInteractiveTests</AssemblyName>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="..\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonTK.Console\CommonTK.Console.csproj" />
+  </ItemGroup>
+
+</Project>

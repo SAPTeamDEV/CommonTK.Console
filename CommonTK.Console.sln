@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console", "CommonT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.Client", "CommonTK.Console.Client\CommonTK.Console.Client.csproj", "{17C9958A-628A-4A48-9774-BF682EF7EBE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTK.Console.UITests", "tests\CommonTK.Console.UITests\CommonTK.Console.UITests.csproj", "{5893607E-B289-4307-8594-E1E606D6CD69}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CommonTK.Console.SharedInteractiveTests", "tests\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.shproj", "{1277AE4C-3BFF-4692-A053-1015CFB8E984}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CommonTK.Console.UnitTests", "tests\CommonTK.Console.UnitTests\CommonTK.Console.UnitTests.shproj", "{8EBF41C6-1CDA-4D07-B0B9-217B032B85C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTK.Console.UIInteractiveTests", "tests\CommonTK.Console.UIInteractiveTests\CommonTK.Console.UIInteractiveTests.csproj", "{C9DAF7A7-17CB-4C91-96D1-375614F64C5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonTK.Console.ConsoleInteractiveTests", "tests\CommonTK.Console.ConsoleInteractiveTests\CommonTK.Console.ConsoleInteractiveTests.csproj", "{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +33,14 @@ Global
 		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17C9958A-628A-4A48-9774-BF682EF7EBE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5893607E-B289-4307-8594-E1E606D6CD69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5893607E-B289-4307-8594-E1E606D6CD69}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5893607E-B289-4307-8594-E1E606D6CD69}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5893607E-B289-4307-8594-E1E606D6CD69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9DAF7A7-17CB-4C91-96D1-375614F64C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9DAF7A7-17CB-4C91-96D1-375614F64C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9DAF7A7-17CB-4C91-96D1-375614F64C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9DAF7A7-17CB-4C91-96D1-375614F64C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,7 +49,8 @@ Global
 		SolutionGuid = {6BF448C2-391B-4253-8ADE-D704EE33EBE4}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		tests\CommonTK.Console.UnitTests\CommonTK.Console.UnitTests.projitems*{5893607e-b289-4307-8594-e1e606d6cd69}*SharedItemsImports = 5
-		tests\CommonTK.Console.UnitTests\CommonTK.Console.UnitTests.projitems*{8ebf41c6-1cda-4d07-b0b9-217b032b85c4}*SharedItemsImports = 13
+		tests\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.projitems*{1277ae4c-3bff-4692-a053-1015cfb8e984}*SharedItemsImports = 13
+		tests\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.projitems*{c9daf7a7-17cb-4c91-96d1-375614f64c5d}*SharedItemsImports = 5
+		tests\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.projitems*{f97aad3f-badd-41b8-bbd7-8a98458216ac}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
