@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net35</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
     <AssemblyName>ConClient</AssemblyName>
     <RootNamespace>SAPTeam.CommonTK.Console.Client</RootNamespace>
     <PackageId>SAPTeam.CommonTK.Console.Client</PackageId>
     
     <Title>CommonTK.Console.Client</Title>
-    <AssemblyTitle>Console Client</AssemblyTitle>
+    <AssemblyTitle>Pipe Console Client</AssemblyTitle>
     <Version></Version>
     <Product>A Simple Console Client.</Product>
     <Authors>Alireza Poodineh</Authors>
