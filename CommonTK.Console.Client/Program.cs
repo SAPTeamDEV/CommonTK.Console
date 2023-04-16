@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+
+using SAPTeam.Zily;
 
 namespace SAPTeam.CommonTK.Console.Client
 {
@@ -18,31 +21,25 @@ namespace SAPTeam.CommonTK.Console.Client
                 var receiver = new NamedPipeClientStream(args[1]);
                 receiver.Connect();
 
-                var reader = new StreamReader(receiver);
-                var writer = new StreamWriter(receiver);
-
-                System.Console.SetIn(reader);
-                System.Console.SetOut(writer);
-
-                System.Console.WriteLine("Answer");
+                var zs = new ZilyStream(receiver);
+                int i = 0;
 
                 while (true)
                 {
-                    System.Console.ReadLine();
-                    Thread.Sleep(100);
+                    receiver.WaitForPipeDrain();
+                    System.Console.WriteLine(zs.ReadString());
+                    if (i > 10)
+                    {
+                        zs.WriteString("END");
+                        receiver.Close();
+                        break;
+                    }
+                    else
+                    {
+                        zs.WriteString("OK");
+                    }
+                    i++;
                 }
-
-                return;
-                int len;
-                len = receiver.ReadByte() * 256;
-                len += receiver.ReadByte();
-
-                var data = new byte[len];
-                receiver.Read(data, 0, len);
-                var text = Encoding.Unicode.GetString(data);
-                text.Trim();
-                System.Console.Write(text);
-                System.Console.ReadKey();
             }
             else if (args[0] == "-s")
             {
@@ -57,6 +54,9 @@ namespace SAPTeam.CommonTK.Console.Client
                 System.Console.WriteLine("valid arguments are: -p <pipe name> or -s");
                 Environment.Exit(1);
             }
+
+            System.Console.WriteLine("Press any key to exit...");
+            System.Console.ReadKey();
         }
     }
 }

@@ -11,6 +11,8 @@ using static PInvoke.Kernel32;
 using static PInvoke.User32;
 using static SAPTeam.CommonTK.Context;
 
+using SAPTeam.Zily;
+
 namespace SAPTeam.CommonTK.Console
 {
     /// <summary>
@@ -44,7 +46,7 @@ namespace SAPTeam.CommonTK.Console
         /// <summary>
         /// Gets the named pipe that used for communicating with the console client.
         /// </summary>
-        public static NamedPipeServerStream Pipe { get; private set; }
+        public static ZilyStream Pipe { get; private set; }
 
         /// <summary>
         /// Checks if The Application has Console.
@@ -217,22 +219,28 @@ namespace SAPTeam.CommonTK.Console
             System.Console.Clear();
         }
 
-        private static void CreateClient()
+        private static async void CreateClient()
         {
-            Pipe = new NamedPipeServerStream(PipeServerName, PipeDirection.InOut, 1);
+            var server = new NamedPipeServerStream(PipeServerName, PipeDirection.InOut, 1);
+            Pipe = new ZilyStream(server);
 
-            var cProc = CreateConsole("ConClient.exe", $"-p {PipeServerName}");
+            var process = CreateConsole("ConClient.exe", $"-p {PipeServerName}");
 
-            Pipe.WaitForConnection();
-            var data = Encoding.Unicode.GetBytes("testing");
-            var len = data.Length;
-            // Pipe.WriteByte((byte)(len / 256));
-            // Pipe.WriteByte((byte)(len & 255));
-            Pipe.Write(data, 0, data.Length);
-            Pipe.Flush();
-            Pipe.WaitForPipeDrain();
-            Pipe.Write(data, 0, data.Length);
-            Pipe.Close();
+            await server.WaitForConnectionAsync();
+            int i = 0;
+            
+            while (true)
+            {
+                Pipe.WriteString($"test {i}");
+                server.WaitForPipeDrain();
+                if (Pipe.ReadString() != "OK")
+                {
+                    break;
+                }
+                i++;
+            }
+
+            server.Close();
         }
 
         private static void ForceSet(ConsoleField field, object obj)

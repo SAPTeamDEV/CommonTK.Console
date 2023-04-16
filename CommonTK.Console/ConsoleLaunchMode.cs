@@ -21,12 +21,12 @@
         AttachProcess,
 
         /// <summary>
-        /// Creates a pipe console client using ConClient.
+        /// Creates a pipe console client using ConClient (ONLY FOR TEST).
         /// </summary>
         CreateClient,
 
         /// <summary>
-        /// Creates a new blank console application and attaches to it.
+        /// Creates a new blank console application and attaches to it (ONLY FOR TEST).
         /// </summary>
         AttachClient
     }
