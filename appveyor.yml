@@ -6,6 +6,11 @@ branches:
   only:
   - master
 
+install:
+  - git submodule init
+  - git submodule update
+
+
 build_script:
   - cmd: dotnet pack CommonTK.Console\CommonTK.Console.csproj -c Release
   - cmd: dotnet pack CommonTK.Console.Client\CommonTK.Console.Client.csproj -c Release
