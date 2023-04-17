@@ -90,6 +90,4 @@ For Getting started with this library and See more features you can visit the gi
   <ItemGroup>
     <ProjectReference Include="..\CommonTK.Console.Client\CommonTK.Console.Client.csproj" />
   </ItemGroup>
-
-  <Import Project="..\externals\Zily\Zily.Shared\Zily.Shared.projitems" Label="Shared" />
 </Project>

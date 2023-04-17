@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.UIInteract
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.ConsoleInteractiveTests", "tests\CommonTK.Console.ConsoleInteractiveTests\CommonTK.Console.ConsoleInteractiveTests.csproj", "{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Zily.Shared", "externals\Zily\Zily.Shared\Zily.Shared.shproj", "{1B5B062E-0FDD-4EC6-87E7-50FD85297086}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zily", "externals\Zily\Zily\Zily.csproj", "{8C18A173-4673-4234-8958-51B07D9BF87D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +43,10 @@ Global
 		{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C18A173-4673-4234-8958-51B07D9BF87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C18A173-4673-4234-8958-51B07D9BF87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C18A173-4673-4234-8958-51B07D9BF87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C18A173-4673-4234-8958-51B07D9BF87D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,9 +56,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		tests\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.projitems*{1277ae4c-3bff-4692-a053-1015cfb8e984}*SharedItemsImports = 13
-		externals\Zily\Zily.Shared\Zily.Shared.projitems*{17c9958a-628a-4a48-9774-bf682ef7ebe8}*SharedItemsImports = 5
-		externals\Zily\Zily.Shared\Zily.Shared.projitems*{1b5b062e-0fdd-4ec6-87e7-50fd85297086}*SharedItemsImports = 13
-		externals\Zily\Zily.Shared\Zily.Shared.projitems*{b66c6852-8f02-48cd-aa76-4682255d4d11}*SharedItemsImports = 5
 		tests\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.projitems*{c9daf7a7-17cb-4c91-96d1-375614f64c5d}*SharedItemsImports = 5
 		tests\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.projitems*{f97aad3f-badd-41b8-bbd7-8a98458216ac}*SharedItemsImports = 5
 	EndGlobalSection
