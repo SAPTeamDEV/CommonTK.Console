@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 using SAPTeam.Zily;
 
+using Serilog;
+
 namespace SAPTeam.CommonTK.Console.Client
 {
     internal class Program
@@ -18,28 +20,19 @@ namespace SAPTeam.CommonTK.Console.Client
         {
             if (args.Length == 2 && args[0] == "-p")
             {
-                var receiver = new NamedPipeClientStream(args[1]);
-                receiver.Connect();
+                Log.Logger = new LoggerConfiguration()
+#if DEBUG
+                    .MinimumLevel.Debug()
+#endif
+                    .WriteTo.Console()
+                    .CreateLogger();
 
-                var zs = new ZilyStream(receiver);
-                int i = 0;
+                var pipe = new NamedPipeClientStream(args[1]);
+                var client = new ZilyPipeClientStream(pipe);
 
-                while (true)
-                {
-                    receiver.WaitForPipeDrain();
-                    System.Console.WriteLine(zs.ReadString());
-                    if (i > 10)
-                    {
-                        zs.WriteString("END");
-                        receiver.Close();
-                        break;
-                    }
-                    else
-                    {
-                        zs.WriteString("OK");
-                    }
-                    i++;
-                }
+                Thread.Sleep(1000);
+                client.Connect();
+                client.Listen();
             }
             else if (args[0] == "-s")
             {

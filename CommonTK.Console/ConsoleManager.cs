@@ -12,6 +12,7 @@ using static PInvoke.User32;
 using static SAPTeam.CommonTK.Context;
 
 using SAPTeam.Zily;
+using Serilog;
 
 namespace SAPTeam.CommonTK.Console
 {
@@ -46,7 +47,7 @@ namespace SAPTeam.CommonTK.Console
         /// <summary>
         /// Gets the named pipe that used for communicating with the console client.
         /// </summary>
-        public static ZilyStream Pipe { get; private set; }
+        public static ZilyPipeServerStream Pipe { get; private set; }
 
         /// <summary>
         /// Checks if The Application has Console.
@@ -219,28 +220,31 @@ namespace SAPTeam.CommonTK.Console
             System.Console.Clear();
         }
 
-        private static async void CreateClient()
+        private static void CreateClient()
         {
-            var server = new NamedPipeServerStream(PipeServerName, PipeDirection.InOut, 1);
-            Pipe = new ZilyStream(server);
+            Log.Logger = new LoggerConfiguration()
+#if DEBUG
+                .MinimumLevel.Debug()
+#endif
+                .WriteTo.File("Zily.log")
+                .CreateLogger();
+
+            var server = new NamedPipeServerStream(PipeServerName, PipeDirection.InOut);
+            Pipe = new ZilyPipeServerStream(server);
 
             var process = CreateConsole("ConClient.exe", $"-p {PipeServerName}");
 
-            await server.WaitForConnectionAsync();
+            Pipe.Accept();
+
             int i = 0;
             
-            while (true)
+            while (i < 10)
             {
-                Pipe.WriteString($"test {i}");
-                server.WaitForPipeDrain();
-                if (Pipe.ReadString() != "OK")
-                {
-                    break;
-                }
+                Pipe.Send(HeaderFlag.Write, $"test {i}\n");
                 i++;
             }
 
-            server.Close();
+            Pipe.Close();
         }
 
         private static void ForceSet(ConsoleField field, object obj)
