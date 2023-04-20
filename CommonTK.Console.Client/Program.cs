@@ -32,7 +32,11 @@ namespace SAPTeam.CommonTK.Console.Client
 
                 Thread.Sleep(1000);
                 client.Connect();
+#if DEBUG
+                client.Listen(false);
+#else
                 client.Listen();
+#endif
             }
             else if (args[0] == "-s")
             {
