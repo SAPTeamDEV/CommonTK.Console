@@ -236,15 +236,8 @@ namespace SAPTeam.CommonTK.Console
 
             Pipe.Accept();
 
-            int i = 0;
-            
-            while (i < 10)
-            {
-                Pipe.Send(HeaderFlag.Write, $"test {i}\n");
-                i++;
-            }
-
-            Pipe.Close();
+            var tw = new ZilyTextWriter(Pipe);
+            System.Console.SetOut(tw);
         }
 
         private static void ForceSet(ConsoleField field, object obj)
