@@ -36,7 +36,7 @@
     </ItemGroup>
    
    <ItemGroup>
-     <ProjectReference Include="..\externals\Zily\Zily\Zily.csproj" />
+     <ProjectReference Include="..\..\externals\Zily\src\Zily.csproj" />
    </ItemGroup>
   
 </Project>

@@ -11,7 +11,7 @@
   <Import Project="..\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.projitems" Label="Shared" />
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CommonTK.Console\CommonTK.Console.csproj" />
+    <ProjectReference Include="..\..\src\CommonTK.Console\CommonTK.Console.csproj" />
   </ItemGroup>
 
 </Project>

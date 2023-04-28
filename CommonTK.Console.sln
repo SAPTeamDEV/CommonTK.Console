@@ -6,12 +6,12 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D83006B2-5B87-49E5-8F79-F70292E39BDA}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		version.json = version.json
+		version.json = src\CommonTK.Console\version.json
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console", "CommonTK.Console\CommonTK.Console.csproj", "{B66C6852-8F02-48CD-AA76-4682255D4D11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console", "src\CommonTK.Console\CommonTK.Console.csproj", "{B66C6852-8F02-48CD-AA76-4682255D4D11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.Client", "CommonTK.Console.Client\CommonTK.Console.Client.csproj", "{17C9958A-628A-4A48-9774-BF682EF7EBE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.Client", "src\CommonTK.Console.Client\CommonTK.Console.Client.csproj", "{17C9958A-628A-4A48-9774-BF682EF7EBE8}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CommonTK.Console.SharedInteractiveTests", "tests\CommonTK.Console.SharedInteractiveTests\CommonTK.Console.SharedInteractiveTests.shproj", "{1277AE4C-3BFF-4692-A053-1015CFB8E984}"
 EndProject
@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.UIInteract
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.ConsoleInteractiveTests", "tests\CommonTK.Console.ConsoleInteractiveTests\CommonTK.Console.ConsoleInteractiveTests.csproj", "{F97AAD3F-BADD-41B8-BBD7-8A98458216AC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zily", "externals\Zily\Zily\Zily.csproj", "{8C18A173-4673-4234-8958-51B07D9BF87D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zily", "externals\Zily\src\Zily.csproj", "{8C18A173-4673-4234-8958-51B07D9BF87D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zily.Tests", "externals\Zily\Zily.Tests\Zily.Tests.csproj", "{A467B2E2-5ABA-47E8-8B21-8BBEE18076C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zily.Tests", "externals\Zily\tests\Zily.Tests.csproj", "{A467B2E2-5ABA-47E8-8B21-8BBEE18076C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
