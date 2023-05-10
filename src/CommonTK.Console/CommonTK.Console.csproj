@@ -7,7 +7,6 @@
     <Deterministic>True</Deterministic>
     <RootNamespace>SAPTeam.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <AssemblyName>SAPTeam.$(MSBuildProjectName)</AssemblyName>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>CommonTK.Console</Title>
     <AssemblyTitle>.NET Common Toolkit for Console</AssemblyTitle>
     <Authors>Alireza Poodineh</Authors>
@@ -27,43 +26,14 @@ Key features of this library are:
 For Getting started with this library and See more features you can visit the github page.</Description>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/SAPTeamDEV/CommonTK.Console</RepositoryUrl>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageTags>console;console-form;console-manager;color-type;create-console;console-launcher;</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <NoWarn>CS8002;NU1702</NoWarn>
-    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>CommonTK.Console.snk</AssemblyOriginatorKeyFile>
     <Copyright>Copyright © SAP Team 2023</Copyright>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <DebugType>portable</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
-    <DebugType>portable</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net461|AnyCPU'">
-    <DebugType>portable</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net461|AnyCPU'">
-    <DebugType>portable</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|AnyCPU'">
-    <DebugType>portable</DebugType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-windows|AnyCPU'">
-    <DebugType>portable</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
