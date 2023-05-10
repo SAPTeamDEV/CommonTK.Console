@@ -232,7 +232,14 @@ namespace SAPTeam.CommonTK.Console
             var server = new NamedPipeServerStream(PipeServerName, PipeDirection.InOut);
             Pipe = new ZilyPipeServerStream(server);
 
-            var process = CreateConsole("ConClient.exe", $"-p {PipeServerName}");
+            string args = $"-p {PipeServerName} --zily";
+#if DEBUG
+            args += " -v";
+#else
+            args += " -q";
+#endif
+
+            var process = CreateConsole("ConClient.exe", args);
 
             Pipe.Accept();
 
