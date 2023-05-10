@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D83006B2-5B87-49E5-8F79-F70292E39BDA}"
-	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
-		version.json = src\CommonTK.Console\version.json
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console", "src\CommonTK.Console\CommonTK.Console.csproj", "{B66C6852-8F02-48CD-AA76-4682255D4D11}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.Client", "src\CommonTK.Console.Client\CommonTK.Console.Client.csproj", "{17C9958A-628A-4A48-9774-BF682EF7EBE8}"
@@ -21,7 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonTK.Console.ConsoleInt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zily", "externals\Zily\src\Zily.csproj", "{8C18A173-4673-4234-8958-51B07D9BF87D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zily.Tests", "externals\Zily\tests\Zily.Tests.csproj", "{A467B2E2-5ABA-47E8-8B21-8BBEE18076C6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{20AE0B09-6112-481C-824B-82D2DFC23FB3}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +46,6 @@ Global
 		{8C18A173-4673-4234-8958-51B07D9BF87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C18A173-4673-4234-8958-51B07D9BF87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C18A173-4673-4234-8958-51B07D9BF87D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A467B2E2-5ABA-47E8-8B21-8BBEE18076C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A467B2E2-5ABA-47E8-8B21-8BBEE18076C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A467B2E2-5ABA-47E8-8B21-8BBEE18076C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A467B2E2-5ABA-47E8-8B21-8BBEE18076C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
