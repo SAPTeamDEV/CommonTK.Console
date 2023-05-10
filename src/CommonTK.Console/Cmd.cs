@@ -1,7 +1,4 @@
 ﻿using System;
-#if !NETSTANDARD && !NETCOREAPP
-using System.Windows.Forms;
-#endif
 
 using SAPTeam.CommonTK.Contexts;
 
@@ -29,38 +26,25 @@ namespace SAPTeam.CommonTK.Console
                 text = "";
             }
 
-            switch (Context.Interface)
+            if (Context.Interface == InteractInterface.Console)
             {
-                case InteractInterface.Console:
+                if (text.Length > 0 && Context.Exists<DisposableWriter>() && !Context.Exists<RedirectConsole>())
+                {
+                    Context.GetContext<DisposableWriter>().AddCoords(System.Console.CursorTop, System.Console.CursorLeft + text.Length);
+                }
+
+                if (newLine)
+                {
+                    System.Console.WriteLine(text);
+                    if (Context.Exists<RedirectConsole>())
                     {
-                        if (text.Length > 0 && Context.Exists<DisposableWriter>() && !Context.Exists<RedirectConsole>())
-                        {
-                            Context.GetContext<DisposableWriter>().AddCoords(System.Console.CursorTop, System.Console.CursorLeft + text.Length);
-                        }
-
-                        if (newLine)
-                        {
-                            System.Console.WriteLine(text);
-                            if (Context.Exists<RedirectConsole>())
-                            {
-                                Context.GetContext<RedirectConsole>().Line++;
-                            }
-                        }
-                        else
-                        {
-                            System.Console.Write(text);
-                        }
+                        Context.GetContext<RedirectConsole>().Line++;
                     }
-                    break;
-
-#if !NETSTANDARD && !NETCOREAPP
-                case InteractInterface.UI:
-                        MessageBox.Show(text, AppDomain.CurrentDomain.FriendlyName);
-                        break;
-#endif
-
-                default:
-                        throw new InvalidOperationException();
+                }
+                else
+                {
+                    System.Console.Write(text);
+                }
             }
         }
 
