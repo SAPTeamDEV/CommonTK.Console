@@ -8,9 +8,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+using CommandLine;
+
 using SAPTeam.Zily;
 
 using Serilog;
+using Serilog.Core;
 
 namespace SAPTeam.CommonTK.Console.Client
 {
@@ -18,38 +21,48 @@ namespace SAPTeam.CommonTK.Console.Client
     {
         public static void Main(string[] args)
         {
-            if (args.Length == 2 && args[0] == "-p")
-            {
-                Log.Logger = new LoggerConfiguration()
-#if DEBUG
-                    .MinimumLevel.Debug()
-#endif
-                    .WriteTo.Console()
-                    .CreateLogger();
+            Parser.Default.ParseArguments<CommandLineOptions>(args)
+                .WithParsed(options => Run(options));
+        }
 
-                var pipe = new NamedPipeClientStream(args[1]);
-                var client = new ZilyPipeClientStream(pipe);
-
-                Thread.Sleep(1000);
-                client.Connect();
-#if DEBUG
-                client.Listen(false);
-#else
-                client.Listen();
-#endif
-            }
-            else if (args[0] == "-s")
+        public static void Run(CommandLineOptions options)
+        {
+            if (!options.Quiet)
             {
-                while (true)
+                var logSource = new LoggerConfiguration()
+                            .WriteTo.Console();
+
+                if (options.Verbose)
                 {
-                    System.Console.ReadLine();
+                    logSource = logSource.MinimumLevel.Debug();
+                }
+
+                Log.Logger = logSource.CreateLogger(); 
+            }
+
+            if (options.PipeName != null)
+            {
+                if (options.Zily)
+                {
+                    var pipe = new NamedPipeClientStream(options.PipeName);
+                    var client = new ZilyPipeClientStream(pipe);
+
+                    client.Connect();
+                    client.Listen(!options.Verbose);
+                }
+                else
+                {
+                    System.Console.Error.WriteLine("This feature is not implemented in this version, use --zily to use this protocol for communication.");
+                    Environment.Exit(1);
                 }
             }
-            else
+            else if (options.Silent)
             {
-                System.Console.WriteLine("Invalid syntax: " + args.ToString());
-                System.Console.WriteLine("valid arguments are: -p <pipe name> or -s");
-                Environment.Exit(1);
+                Log.Logger.Information("Application is ready");
+                while (true)
+                {
+                    System.Console.Read();
+                }
             }
 
             System.Console.WriteLine("Press any key to exit...");
