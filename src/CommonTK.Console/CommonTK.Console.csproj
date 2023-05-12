@@ -54,7 +54,7 @@ For Getting started with this library and See more features you can visit the gi
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" Condition="'$(TargetFramework)' == 'net461'" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.128" PrivateAssets="All" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.132" PrivateAssets="All" />
     <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
 
