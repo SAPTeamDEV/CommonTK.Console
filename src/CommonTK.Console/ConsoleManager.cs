@@ -230,7 +230,7 @@ namespace SAPTeam.CommonTK.Console
                 .CreateLogger();
 
             var server = new NamedPipeServerStream(PipeServerName, PipeDirection.InOut);
-            ZilyPipeServerSide side = new ZilyPipeServerSide("console");
+            ZilyPipeServerSide side = new ZilyPipeServerSide();
             Pipe = new ZilyStream(server, side);
 
             string args = $"-p {PipeServerName} --zily";
