@@ -3,11 +3,13 @@ using System.Windows.Forms;
 using SAPTeam.CommonTK.Console;
 using SAPTeam.CommonTK.Contexts;
 using SAPTeam.CommonTK.Console.SharedInteractiveTests;
+using System.Threading;
 
 namespace CommonTK.Console.UIInteractiveTests
 {
     public partial class MainForm : Form
     {
+        ConsoleWindow con;
         public MainForm()
         {
             InitializeComponent();
@@ -15,16 +17,18 @@ namespace CommonTK.Console.UIInteractiveTests
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            
+            con = new ConsoleWindow(ConsoleLaunchMode.CreateClient, true);
         }
 
         private void MainForm_Shown(object sender, System.EventArgs e)
         {
-            using (var con = new ConsoleWindow(ConsoleLaunchMode.CreateClient, true))
-            {
-                var tests = new EntryPoint();
-                tests.BeginTests();
-            }
+            var tests = new EntryPoint();
+            new Thread(tests.BeginTests).Start();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ConsoleManager.Pipe.Close();
         }
     }
 }
