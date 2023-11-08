@@ -45,12 +45,11 @@ namespace SAPTeam.CommonTK.Console.Client
                 if (options.Zily)
                 {
                     var pipe = new NamedPipeClientStream(options.PipeName);
-                    var side = new ZilyClientSide();
-                    var client = new ZilyStream(pipe, side);
+                    var side = new ZilyClientSide(pipe);
 
                     pipe.Connect();
                     side.Connect();
-                    client.Listen(!options.Verbose);
+                    side.Listen(!options.Verbose);
                 }
                 else
                 {

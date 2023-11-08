@@ -47,7 +47,7 @@ namespace SAPTeam.CommonTK.Console
         /// <summary>
         /// Gets the named pipe that used for communicating with the console client.
         /// </summary>
-        public static ZilyStream Pipe { get; private set; }
+        public static ZilySide Pipe { get; private set; }
 
         /// <summary>
         /// Checks if The Application has Console.
@@ -230,8 +230,8 @@ namespace SAPTeam.CommonTK.Console
                 .CreateLogger();
 
             var server = new NamedPipeServerStream(PipeServerName, PipeDirection.InOut);
-            ZilyPipeServerSide side = new ZilyPipeServerSide();
-            Pipe = new ZilyStream(server, side);
+            ZilyPipeServerSide side = new ZilyPipeServerSide(server);
+            Pipe = side;
 
             string args = $"-p {PipeServerName} --zily";
 #if DEBUG
