@@ -33,7 +33,7 @@
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All" />
      <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.133" PrivateAssets="All" />
-     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.0" />
+     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
     </ItemGroup>
    
    <ItemGroup>
