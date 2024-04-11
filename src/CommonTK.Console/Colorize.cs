@@ -57,7 +57,7 @@ namespace SAPTeam.CommonTK.Console
                 if (piece.StartsWith("[") && piece.EndsWith("]"))
                 {
                     formatted = true;
-                    piece = piece.Substring(1, piece.Length - 1);
+                    piece = piece.Substring(1, piece.Length - 2);
                 }
 
                 if (formatted && colors.Length > 0)
