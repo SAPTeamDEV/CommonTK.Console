@@ -31,12 +31,13 @@ namespace SAPTeam.CommonTK.Console
             UnFocus();
         }
 
-        public void Write(string message)
+        public StatusIdentifier Write(string message)
         {
             Clear();
             Focus();
             Utils.Echo(message, false);
             UnFocus();
+            return StatusIdentifier.Empty;
         }
 
         public void Dispose()
