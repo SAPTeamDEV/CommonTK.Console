@@ -15,5 +15,11 @@ namespace SAPTeam.CommonTK.Console.SharedInteractiveTests
                 Thread.Sleep(1000);
             }
         }
+
+        public void InputTest()
+        {
+            var i = System.Console.Read();
+            System.Console.WriteLine(i);
+        }
     }
 }

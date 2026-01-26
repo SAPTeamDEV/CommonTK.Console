@@ -7,7 +7,8 @@ namespace SAPTeam.CommonTK.Console.ConsoleInteractiveTests
         static void Main(string[] args)
         {
             var tests = new EntryPoint();
-            tests.BeginTests();
+            //tests.BeginTests();
+            tests.InputTest();
         }
     }
 }
